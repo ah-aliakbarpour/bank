@@ -45,7 +45,9 @@ jobs:
 #          sudo mv migrate.linux-amd64 /usr/bin/migrate
 
       - name: Run migrations
-        run: migrate -path db/migration -database "postgresql://ahaap:1245@localhost:5432/bank?sslmode=disable" -verbose up
+        run: |
+          ls
+          migrate -path db/migration -database "postgresql://ahaap:1245@localhost:5432/bank?sslmode=disable" -verbose up
 
       - name: Test
         run: go test -v -cover ./...
